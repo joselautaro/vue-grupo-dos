@@ -1,0 +1,46 @@
+Las directivas en vue son atributos especiales que le indican a vue como manipular el dom. Las directivas comienzan con el prefijo 'v-' y permiten gestionar diversas operaciones, como por ejemplo vinculación de datos, control de visibilidad de elementos, entre otros
+
+1- 'v-bind': Enlaza dinamicamente un atributo o propiedad a una expresion
+Permite vincular los atributos html a valores reactivos
+<img v-bind:src="imageURL" aLt='imagen-dinamica'>
+
+2- 'v-model': Crear un enlace bidireccional entre un input o cualquier otro elementos del formulario y una propiedad de datos
+
+<input v-model="inputValue" placerholder="Escribe algo">
+
+3- 'v-if': controla si el elemento está presente en el dom segun la expresion evaluada
+
+<p v-if="mostrarTexto">Este texto solo se muestra si mostrarTexto es true</p>
+
+4- 'v-else' y 'v-else-if': se usan en conjunto para manera multiples condiciones
+
+'v-else-if' y 'v-else': funciona como en las sentencias condicionales. Si la primera condicion no es verdadera, se va a evaluar la siguiente con else-if. Si ninguna es verdadera se ejecutará el v-else.
+
+<p v-if="valor === 1">Valor es 1</p>
+<p v-else-if="valor === 2">Valor es 2</p>
+<p v-else> Valor es diferente de 1 y 2</p>
+
+5 'v-for': nos permite iterar una lista de elementos, creando un html por cada entrada
+
+<ul>
+    <li v-for="(item, index) in items" :key="index"> {{item}} </li>
+</ul>
+
+6 'v-show': contorla la visibilidad de un elemento cambiando su estilo display
+
+<p v-show="isVisible"> Este texto está visible según el valor de isVisible </p>
+
+7 'v-on': Escucha eventos del DOM, y ejecuta una funcion cuando se dispara un eventos
+
+<button v-on:onclick="manejaClick">Haz click aquí</button>
+
+8 'v-html': Inserta html sin escapar en el DOM
+
+<div v-html="htmlContent"></div>
+
+9 'v-pre': Inidic a vue que no compile ni procese el contenido del elemento donde se aplica
+
+<span v-pre> {{esteTextoNoSeProcesa}} </span>
+
+
+
