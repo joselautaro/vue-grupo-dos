@@ -42,5 +42,20 @@ Permite vincular los atributos html a valores reactivos
 
 <span v-pre> {{esteTextoNoSeProcesa}} </span>
 
+10 'v-cloak': Utilizado como una directiva especial para resolver problemas de parpadeo al iniciar una app
+
+<div v-cloak>{{mensaje}}</div>
+
+11 'v-once': Renderiza el elemento solo una vez sin estar atado a la reactividad
+<p v-once>{{mensaje}}</p>
+
+12 'v-slot': Define un slot para componentes, lo que permite la inserción de contenido dinamico en un componente hijo desde el padre
+
+<template v-slot:header>
+    <h1>Este el el contenido del header</h1>
+</template>
+
+
+
 
 
