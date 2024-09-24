@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import App from '@/App.vue'
+import Ejemplos from '@/components/ProgramacionReactiva/Ejemplo2.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +11,11 @@ const router = createRouter({
       name: 'home',
       component: App
     },
+    {
+      path: '/programacion-reactiva',
+      name: 'programacion-reactiva',
+      component: Ejemplos
+    }
     // {
     //   path: '/about',
     //   name: 'about',
