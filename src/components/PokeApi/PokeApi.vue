@@ -2,13 +2,16 @@
 import {
     pokemon,
     busqueda,
-    handleInputChange
+    handleInputChange,
+    handleAnterior,
+    handleSiguiente,
+    handleSubmit
 } from './usePokemon'
 </script>
 
 <template>
     <div class="card-poke">
-        <form class="m-2">
+        <form class="m-2" @submit.prevent="handleSubmit">
             <input class="form-control" v-model="busqueda" type="text" autofocus placeholder="Buscar pokemon"
                 @input="handleInputChange">
         </form>
@@ -18,8 +21,8 @@ import {
             <p>Peso: {{ pokemon.peso }} kg</p>
             <img :src="pokemon.img" alt="img">
         </div>
-        <button class="btn btn-primary m-4">Anterior</button>
-        <button class="btn btn-success m-4">Siguiente</button>
+        <button class="btn btn-primary m-4" @click="handleAnterior">Anterior</button>
+        <button class="btn btn-success m-4" @click="handleSiguiente">Siguiente</button>
     </div>
 </template>
 

@@ -3,9 +3,9 @@ import axios from 'axios';
 
 // Definimos las referencias reactivas para los estados
 
-const pokemon = ref(null)
+const pokemon = ref({})
 
-const id = ref(5)
+const id = ref(1)
 
 const busqueda = ref('')
 
@@ -32,6 +32,41 @@ const busquedaById = async (pokemonId) =>{
     }
 }
 
+const handleSubmit = async () =>{
+    if( busqueda.value.length > 2 ){
+        try{
+
+            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${busqueda.value}`)
+
+            const data = response.data;
+
+            pokemon.value = {
+                numero: data.id,
+                nombre: data.name,
+                img: data.sprites.front_default,
+                peso: data.weight
+            }
+            id.value = data.id;
+        }catch(error){
+            console.log(error);
+        }
+    }
+    
+}
+
+const handleAnterior = () =>{
+    if( id.value > 1 ){
+        id.value -= 1;
+    }
+    busqueda.value = '';
+}
+
+const handleSiguiente = () =>{
+    id.value += 1;
+    busqueda.value = '';
+}
+
+
 // Ejecuta la busqueda cuando el id cambia
 watchEffect(() =>{
     busquedaById(id.value)
@@ -44,5 +79,8 @@ const handleInputChange = (e) =>{
 export{
     pokemon,
     busqueda,
-    handleInputChange
+    handleInputChange,
+    handleSubmit,
+    handleAnterior,
+    handleSiguiente
 }
