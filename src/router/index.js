@@ -1,12 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
 import App from '@/App.vue'
-import Ejemplos from '@/components/ProgramacionReactiva/Ejemplo8.vue'
-import Padre2 from '@/components/Props/Padre2.vue'
-import Padre3 from '@/components/Props/Padre3.vue'
-import Padre4 from '@/components/Props/Padre4.vue'
-import Padre5 from '@/components/Props/Padre5.vue'
-import Padre6 from '@/components/Props/Padre6.vue'
+import PokeApi from '@/components/PokeApi/PokeApi.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,14 +11,9 @@ const router = createRouter({
       component: App
     },
     {
-      path: '/programacion-reactiva',
-      name: 'programacion-reactiva',
-      component: Ejemplos
-    },
-    {
-      path: '/props',
-      name: 'propiedades',
-      component: Padre6
+      path: '/pokeapi',
+      name: 'pokeapi',
+      component: PokeApi
     }
     // {
     //   path: '/about',
